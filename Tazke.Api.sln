@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36408.4 d17.14
+VisualStudioVersion = 17.14.36408.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tazke.Api", "Tazke.Api\Tazke.Api.csproj", "{B3B28DA6-53E8-4ADB-B610-E4096F53A82B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tazke.Api.Tests", "Tazke.Api.Tests\Tazke.Api.Tests.csproj", "{CE07A3CF-07A5-4DCC-B485-3ECD3B792805}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{B3B28DA6-53E8-4ADB-B610-E4096F53A82B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3B28DA6-53E8-4ADB-B610-E4096F53A82B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3B28DA6-53E8-4ADB-B610-E4096F53A82B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE07A3CF-07A5-4DCC-B485-3ECD3B792805}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE07A3CF-07A5-4DCC-B485-3ECD3B792805}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE07A3CF-07A5-4DCC-B485-3ECD3B792805}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE07A3CF-07A5-4DCC-B485-3ECD3B792805}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

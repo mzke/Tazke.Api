@@ -2,8 +2,8 @@
 
 public class Honorario
 {
-    public long Id { get; set; }
-    public long UsuarioId { get; set; }
+    public Guid Id { get; set; }
+    public Guid UsuarioId { get; set; }
     public Usuario Usuario { get; set; } = null!;
     public string Descricao { get; set; } = string.Empty;
     public decimal Preco { get; set; }

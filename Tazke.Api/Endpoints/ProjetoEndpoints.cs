@@ -13,9 +13,10 @@ public static class ProjetoEndpoints
 
         
 
-        group.MapGet("/{id:int}", GetProjetoById)
+        group.MapGet("/{id:guid}", GetProjetoById)
             .WithName("GetProjetoById")
             .WithSummary("Obter projeto pelo ID");
+        
         group.MapPost("/", CreateProjeto)
             .WithName("CreateProjeto")
             .WithSummary("Cria um novo projeto.")
@@ -23,15 +24,15 @@ public static class ProjetoEndpoints
             .Produces<ProjetoDto>(201)
             .Produces(400);
 
-        group.MapPut("/{id:int}", UpdateProjeto)
+        group.MapPut("/{id:guid}", UpdateProjeto)
             .WithName("UpdateProjeto")
             .WithSummary("Atualiza um projeto.");
 
-        group.MapDelete("/{id:int}", DeleteProjeto)
+        group.MapDelete("/{id:guid}", DeleteProjeto)
             .WithName("DeleteProjeto")
             .WithSummary("Exclui um projeto.");
     }
-    private static async Task<IResult> GetProjetoById(int id, IProjetoService projetoService)
+    private static async Task<IResult> GetProjetoById(Guid id, IProjetoService projetoService)
     {
         var projeto = await projetoService.GetByIdAsync(id);
         return projeto is not null ? Results.Ok(projeto) : Results.NotFound();
@@ -49,7 +50,7 @@ public static class ProjetoEndpoints
         }
     }
 
-    private static async Task<IResult> UpdateProjeto(int id, UpdateProjetoRequest request, 
+    private static async Task<IResult> UpdateProjeto(Guid id, UpdateProjetoRequest request, 
         IProjetoService projetoService)
     {
         try
@@ -63,7 +64,7 @@ public static class ProjetoEndpoints
         }
     }
 
-    private static async Task<IResult> DeleteProjeto(int id, IProjetoService projetoService)
+    private static async Task<IResult> DeleteProjeto(Guid id, IProjetoService projetoService)
     {
         var deleted = await projetoService.DeleteAsync(id);
         return deleted ? Results.NoContent() : Results.NotFound();

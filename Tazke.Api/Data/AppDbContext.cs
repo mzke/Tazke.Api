@@ -85,7 +85,7 @@ public class AppDbContext : DbContext
     private static void SeedData(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Plano>().HasData(
-            new Plano { Id = 1,  MaxAtividades = 2, MaxProjetos = 2, MaxTarefas = 2, Nome = "Gratuito" }
+            new Plano { Id = Guid.Parse("324d08a8-3595-4d71-8b65-277c76a489e4"),  MaxAtividades = 2, MaxProjetos = 2, MaxTarefas = 2, Nome = "Gratuito" }
         );
     }
 }

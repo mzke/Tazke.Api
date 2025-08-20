@@ -2,10 +2,10 @@
 
 public class Tarefa
 {
-    public long Id { get; set; }
-    public long ProjetoId { get; set; }
+    public Guid Id { get; set; }
+    public Guid ProjetoId { get; set; }
     public Projeto Projeto { get; set; } = null!;
-    public long HonorarioId { get; set; }
+    public Guid HonorarioId { get; set; }
     public Honorario Honorario { get; set; } = null!;
     public DateTime Data { get; set; }
     public string Assunto { get; set; } = string.Empty;

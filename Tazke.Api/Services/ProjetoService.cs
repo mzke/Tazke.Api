@@ -11,7 +11,7 @@ public class ProjetoService : IProjetoService
     {
         _projetoRepository = projetoRepository;
     }
-    public async Task<ProjetoDto?> GetByIdAsync(int id)
+    public async Task<ProjetoDto?> GetByIdAsync(Guid id)
     {
         var projeto = await _projetoRepository.GetByIdAsync(id);
         if (projeto == null)
@@ -25,7 +25,7 @@ public class ProjetoService : IProjetoService
         };
         return result;
     }
-    public async Task<IEnumerable<ProjetoDto>> GetByUsuarioAsync(int usuarioId)
+    public async Task<IEnumerable<ProjetoDto>> GetByUsuarioAsync(Guid usuarioId)
     {
         var projetos = await _projetoRepository.GetByUsuarioAsync(usuarioId);
         return projetos.Select(p => new ProjetoDto
@@ -48,7 +48,7 @@ public class ProjetoService : IProjetoService
             Titulo = result.Titulo
         };
     }
-    public async Task<ProjetoDto?> UpdateAsync(int id, UpdateProjetoRequest request)
+    public async Task<ProjetoDto?> UpdateAsync(Guid id, UpdateProjetoRequest request)
     {
         var projeto = await _projetoRepository.GetByIdAsync(id);
         if (projeto == null)
@@ -63,7 +63,7 @@ public class ProjetoService : IProjetoService
             Titulo = result.Titulo
         };
     }
-    public async Task<bool> DeleteAsync(int id)
+    public async Task<bool> DeleteAsync(Guid id)
     {
         return await _projetoRepository.DeleteAsync(id);
     }

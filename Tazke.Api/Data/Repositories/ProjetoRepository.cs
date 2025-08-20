@@ -18,14 +18,22 @@ public class ProjetoRepository :  IProjetoRepository
         return projeto;
     }
 
-    public Task<bool> DeleteAsync(int id)
+    public async Task<bool> DeleteAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var projeto = await _context.Projetos.FindAsync(id);
+        if (projeto == null)
+        {
+            return false;
+        }
+
+        _context.Projetos.Remove(projeto);
+        await _context.SaveChangesAsync();
+        return true;
     }
 
-    public Task<bool> ExistsAsync(int id)
+    public async Task<bool> ExistsAsync(Guid id)
     {
-        throw new NotImplementedException();
+        return await _context.Projetos.AnyAsync(p => p.Id == id);
     }
 
     public Task<IEnumerable<Projeto>> GetAllAsync()
@@ -33,18 +41,21 @@ public class ProjetoRepository :  IProjetoRepository
         throw new NotSupportedException("This method is not supported for ProjetoRepository. Use GetByUsuarioAsync instead.");
     }
 
-    public Task<Projeto?> GetByIdAsync(int id)
+    public async Task<Projeto?> GetByIdAsync(Guid id)
+    {
+        var result =  await _context.Projetos.FindAsync(id);
+        return result;
+    }
+
+    public Task<IEnumerable<Projeto>> GetByUsuarioAsync(Guid usuarioId)
     {
         throw new NotImplementedException();
     }
 
-    public Task<IEnumerable<Projeto>> GetByUsuarioAsync(int usuarioId)
+    public async Task<Projeto> UpdateAsync(Projeto projeto)
     {
-        throw new NotImplementedException();
-    }
-
-    public Task<Projeto> UpdateAsync(Projeto product)
-    {
-        throw new NotImplementedException();
+        _context.Entry(projeto).State = EntityState.Modified;
+        await _context.SaveChangesAsync();
+        return projeto;
     }
 }

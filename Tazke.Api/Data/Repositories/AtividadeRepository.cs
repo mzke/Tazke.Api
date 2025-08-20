@@ -18,7 +18,7 @@ public class AtividadeRepository :  IAtividadeRepository
         return atividade;
     }
 
-    public async Task<bool> DeleteAsync(int id)
+    public async Task<bool> DeleteAsync(Guid id)
     {
         var atividade = await _context.Atividades.FindAsync(id);
         if (atividade == null)
@@ -31,11 +31,11 @@ public class AtividadeRepository :  IAtividadeRepository
         return true;
     }
 
-    public async Task<bool> ExistsAsync(int id)
+    public async Task<bool> ExistsAsync(Guid id)
     {
         return await _context.Atividades.AnyAsync(p => p.Id == id);
     }
-    public async Task<IEnumerable<Atividade>> GetByTarefaAsync(int tarefaId)
+    public async Task<IEnumerable<Atividade>> GetByTarefaAsync(Guid tarefaId)
     {
         return await _context.Atividades
             .Include(p => p.Tarefa)
@@ -48,7 +48,7 @@ public class AtividadeRepository :  IAtividadeRepository
         throw new NotSupportedException("This method is not supported for AtividadeRepository. Use GetByTarefaAsync instead.");
     }
 
-    public async Task<Atividade?> GetByIdAsync(int id)
+    public async Task<Atividade?> GetByIdAsync(Guid id)
     {
         return await _context.Atividades.FirstOrDefaultAsync(p => p.Id == id );
     }

@@ -2,7 +2,7 @@
 
 public class Plano
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string Nome { get; set; } = string.Empty;
     public int MaxProjetos { get; set; }
     public int MaxTarefas { get; set; }

@@ -5,9 +5,9 @@ namespace Tazke.Api.Services;
 public interface IProjetoService
 {
  
-    Task<ProjetoDto?> GetByIdAsync(int id);
-    Task<IEnumerable<ProjetoDto>> GetByUsuarioAsync(int categoryId);
+    Task<ProjetoDto?> GetByIdAsync(Guid id);
+    Task<IEnumerable<ProjetoDto>> GetByUsuarioAsync(Guid usuarioId);
     Task<ProjetoDto> CreateAsync(CreateProjetoRequest request);
-    Task<ProjetoDto?> UpdateAsync(int id, UpdateProjetoRequest request);
-    Task<bool> DeleteAsync(int id);
+    Task<ProjetoDto?> UpdateAsync(Guid id, UpdateProjetoRequest request);
+    Task<bool> DeleteAsync(Guid id);
 }
